@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaFacebookF, FaInstagram, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaPhoneAlt, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer
       className="relative py-12 md:py-16 px-8 md:px-20 text-white overflow-hidden"
@@ -28,15 +31,14 @@ function Footer() {
             Chef Calderón
           </h3>
           <p className="text-gray-400 text-sm leading-relaxed font-[Inter]">
-            A fusion of tradition and innovation. Culinary experiences crafted
-            with passion, precision, and heart.
+            {t("footer.description")}
           </p>
         </div>
 
         {/* Columna 2 - Contacto */}
         <div>
           <h4 className="text-xl font-[Playfair_Display] text-[#C1440E] mb-4">
-            Contact
+            {t("footer.contact")}
           </h4>
           <ul className="space-y-2 text-gray-300 text-sm font-[Inter]">
             <li className="flex items-center justify-center md:justify-start gap-3">
@@ -52,7 +54,7 @@ function Footer() {
         {/* Columna 3 - Redes */}
         <div>
           <h4 className="text-xl font-[Playfair_Display] text-[#C1440E] mb-4">
-            Follow Me
+            {t("footer.follow")}
           </h4>
           <div className="flex justify-center md:justify-start gap-5">
             <a
@@ -71,6 +73,22 @@ function Footer() {
             >
               <FaInstagram className="text-[#F3EDE4] text-lg" />
             </a>
+            <a
+              href="https://wa.me/50685804430?text=Hola%20Chef%20Calder%C3%B3n%2C%20me%20gustar%C3%ADa%20hacer%20una%20reservaci%C3%B3n."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-[#1b1b1b] hover:bg-green-600/40 transition"
+            >
+              <FaWhatsapp className="text-[#F3EDE4] text-lg" />
+            </a>
+            <a
+              href="https://maps.app.goo.gl/uZvhZCm7wdqA7USr5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-[#1b1b1b] hover:bg-blue-600/40 transition"
+            >
+              <FaMapMarkerAlt className="text-[#F3EDE4] text-lg" />
+            </a>
           </div>
         </div>
       </div>
@@ -78,8 +96,7 @@ function Footer() {
       {/* Línea divisoria */}
       <div className="relative z-10 mt-10 border-t border-[#2a2a2a] pt-6 text-center">
         <p className="text-sm text-gray-500 font-[Inter]">
-          © 2025 <span className="text-[#C1440E] font-semibold">Pura Vida Tech</span>. 
-          All rights reserved.
+          © 2025 <span className="text-[#C1440E] font-semibold">Pura Vida Tech</span>. {t("footer.rights")}
         </p>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Imágenes
 import ramen from "../assets/Galeria/Ramen.jpg";
@@ -11,30 +12,23 @@ import pulpo from "../assets/Galeria/pulpo.jpg";
 import gourmet from "../assets/Galeria/gourmet.jpg";
 import emparedado from "../assets/Galeria/emparedado.jpg";
 import ensalada from "../assets/Galeria/ensalada.jpg";
-import saludable from "../assets/Galeria/saludable.jpg";
-import camaron from "../assets/Galeria/camaron.jpg";
-import pasta from "../assets/Galeria/pasta.jpg";
-import huevo from "../assets/Galeria/huevo.jpg";
-
-const galleryItems = [
-  { src: ramen, title: "Asian Ramen" },
-  { src: sushi, title: "Traditional Sushi" },
-  { src: ceviche, title: "Tropical Ceviche" },
-  { src: pulpo, title: "Mediterranean Octopus" },
-  { src: gourmet, title: "Fusion Dish" },
-  { src: postre, title: "Signature Dessert" },
-  { src: emparedado, title: "Artisan Sandwich" },
-  { src: ensalada, title: "Fresh Salad" },
-  { src: saludable, title: "Healthy Bowl" },
-  { src: camaron, title: "Garlic Shrimp" },
-  { src: pasta, title: "Italian Pasta" },
-  { src: huevo, title: "Egg & Truffle" },
-];
 
 export default function Gallery() {
   const [selected, setSelected] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const galleryItems = [
+    { src: ramen, title: t("gallery.items.ramen") },
+    { src: sushi, title: t("gallery.items.sushi") },
+    { src: ceviche, title: t("gallery.items.ceviche") },
+    { src: pulpo, title: t("gallery.items.pulpo") },
+    { src: gourmet, title: t("gallery.items.gourmet") },
+    { src: postre, title: t("gallery.items.postre") },
+    { src: emparedado, title: t("gallery.items.emparedado") },
+    { src: ensalada, title: t("gallery.items.ensalada") },
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000);
@@ -47,42 +41,24 @@ export default function Gallery() {
     <section className="relative text-white py-24 px-6 md:px-16 overflow-hidden min-h-screen">
       {/* Fondo dinámico */}
       <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 25% 30%, #151621 0%, #0a0a0f 80%)",
-        }}
+        className="absolute inset-0 bg-gradient-to-br from-[#0b0d12] via-[#0f141d] to-[#06080b]"
       ></div>
 
-      {/* Textura y luz ambiental */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage:
-            "url('https://www.transparenttextures.com/patterns/noise.png')",
-          backgroundRepeat: "repeat",
-        }}
-      ></div>
-
+      {/* Luz ambiental */}
       <motion.div
-        className="absolute w-[900px] h-[900px] rounded-full bg-[#4b6cb7]/20 blur-3xl"
-        animate={{
-          scale: [1, 1.05, 1],
-          opacity: [0.2, 0.35, 0.2],
-          x: [0, 40, -40, 0],
-          y: [0, -20, 15, 0],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      ></motion.div>
+        className="absolute w-[700px] h-[700px] rounded-full bg-[#C1440E]/10 blur-[120px] top-[20%] left-[40%]"
+        animate={{ opacity: [0.2, 0.35, 0.2], scale: [1, 1.1, 1] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       {/* Título */}
       <motion.h2
-        className="text-5xl md:text-6xl font-[Playfair_Display] text-center text-[#F3EDE4] mb-16 relative z-10"
+        className="text-5xl md:text-6xl font-[Playfair_Display] text-center text-[#F3EDE4] mb-20 tracking-wide relative z-10"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Culinary Experience
+        {t("gallery.title")}
       </motion.h2>
 
       {/* Preloader */}
@@ -102,49 +78,61 @@ export default function Gallery() {
         )}
       </AnimatePresence>
 
-      {/* Galería */}
+      {/* Galería con estilo moderno */}
       {!loading && (
-        <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+        <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           {galleryItems.map((item, index) => (
             <motion.div
               key={index}
               onClick={() => setSelected(item)}
-              className={`relative overflow-hidden rounded-2xl group cursor-pointer transition-all duration-500 hover:scale-[1.03] ${
-                index % 3 === 0
-                  ? "translate-y-2"
-                  : index % 3 === 1
-                  ? "-translate-y-3"
-                  : "translate-y-1"
-              }`}
-              initial={{ opacity: 0, y: 50 }}
+              className="group relative rounded-3xl overflow-hidden shadow-[0_0_25px_rgba(0,0,0,0.4)] transition-all duration-500 cursor-pointer hover:scale-[1.04]"
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.03 }}
+              transition={{ duration: 0.6, delay: index * 0.05 }}
               viewport={{ once: true }}
             >
-              <img
-                src={item.src}
-                alt={item.title}
-                loading="lazy"
-                className="w-full h-[220px] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#000000c7] to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-3">
-                <h3 className="text-sm md:text-base font-[Playfair_Display] text-[#F3EDE4]">
-                  {item.title}
-                </h3>
-                <p className="text-[11px] text-[#4b6cb7] font-[Inter]">
-                  Chef Calderón Signature
-                </p>
+              {/* Imagen con overlay y blur */}
+              <div className="relative overflow-hidden rounded-3xl">
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                {/* Efecto de brillo diagonal */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000]/70 via-[#000]/30 to-transparent opacity-70 group-hover:opacity-90 transition duration-500"></div>
+
+                {/* Línea decorativa animada */}
+                <motion.div
+                  className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#C1440E] to-[#E85C2C]"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.4 }}
+                />
+
+                {/* Texto */}
+                <div className="absolute bottom-5 left-5">
+                  <h3 className="text-lg md:text-xl font-[Playfair_Display] text-[#F3EDE4] drop-shadow-md">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-[#C1440E]/80 font-[Inter] tracking-wider uppercase">
+                    {t("gallery.signature")}
+                  </p>
+                </div>
               </div>
+
+              {/* Glow exterior elegante */}
+              <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-[#C1440E]/50 group-hover:shadow-[0_0_25px_rgba(193,68,14,0.4)] transition-all duration-500"></div>
             </motion.div>
           ))}
         </div>
       )}
 
-      {/* Modal */}
+      {/* Modal elegante */}
       <AnimatePresence>
         {selected && (
           <motion.div
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50"
             onClick={() => setSelected(null)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -153,11 +141,11 @@ export default function Gallery() {
             <motion.img
               src={selected.src}
               alt={selected.title}
-              className="max-w-[90%] max-h-[85vh] rounded-3xl shadow-[0_0_40px_rgba(75,108,183,0.4)] object-contain"
+              className="max-w-[90%] max-h-[85vh] rounded-3xl shadow-[0_0_60px_rgba(193,68,14,0.4)] object-contain"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.4 }}
             />
             <motion.div
               className="absolute bottom-10 text-center text-[#F3EDE4]"
@@ -165,9 +153,11 @@ export default function Gallery() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <h3 className="text-lg font-[Playfair_Display]">{selected.title}</h3>
-              <p className="text-sm text-[#4b6cb7] font-[Inter]">
-                Chef Calderón Signature Dish
+              <h3 className="text-2xl font-[Playfair_Display] drop-shadow-lg">
+                {selected.title}
+              </h3>
+              <p className="text-sm text-[#C1440E] font-[Inter]">
+                {t("gallery.signature")}
               </p>
             </motion.div>
           </motion.div>
@@ -177,11 +167,11 @@ export default function Gallery() {
       {/* Scroll Down */}
       <motion.div
         onClick={goToNext}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer flex flex-col items-center gap-2 text-[#F3EDE4]/70 hover:text-[#4b6cb7] transition"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer flex flex-col items-center gap-2 text-[#F3EDE4]/70 hover:text-[#C1440E] transition"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <span className="text-sm font-[Inter]">Scroll Down</span>
+        <span className="text-sm font-[Inter]">{t("gallery.scroll")}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

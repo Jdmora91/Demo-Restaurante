@@ -8,6 +8,7 @@ import Gallery from "./pages/Gallery";
 import Review from "./pages/Review";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import "./i18n";
 
 function App() {
   const location = useLocation();

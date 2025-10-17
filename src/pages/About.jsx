@@ -1,10 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import chef from "../assets/chef.jpg";
 
 function About() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const goToGallery = () => navigate("/gallery");
 
@@ -48,7 +50,7 @@ function About() {
           className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl shadow-[0_0_30px_rgba(193,68,14,0.5)] border border-[#C1440E]/30"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         />
 
@@ -61,7 +63,7 @@ function About() {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            About Chef Calderón
+            {t("about.title")}
           </motion.h2>
 
           <motion.p
@@ -71,10 +73,7 @@ function About() {
             transition={{ delay: 0.2, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            With a career that bridges continents,{" "}
-            <span className="text-[#C1440E] font-semibold">Chef Calderón</span>{" "}
-            blends Asian precision, French sophistication, and Costa Rican heart
-            to create experiences that transcend the plate.
+            {t("about.p1")}
           </motion.p>
 
           <motion.p
@@ -84,8 +83,7 @@ function About() {
             transition={{ delay: 0.3, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            His approach is guided by emotion, balance, and storytelling — every
-            dish a dialogue between culture, memory, and craftsmanship.
+            {t("about.p2")}
           </motion.p>
 
           <motion.blockquote
@@ -95,7 +93,7 @@ function About() {
             transition={{ delay: 0.4, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            “A chef’s true recipe is written in intuition, not instructions.”
+            “{t("about.quote")}”
           </motion.blockquote>
         </div>
       </div>
@@ -107,7 +105,7 @@ function About() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <span className="text-sm font-[Inter]">Scroll Down</span>
+        <span className="text-sm font-[Inter]">{t("about.scroll")}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

@@ -1,0 +1,63 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "about": "Sobre el Chef",
+    "gallery": "Galería",
+    "review": "Opiniones",
+    "contact": "Contacto"
+  },
+  "home": {
+    "title": "Chef Calderón",
+    "subtitle": "Fusión de culturas y sabores. Precisión asiática, elegancia francesa y alma costarricense en cada plato.",
+    "contactBtn": "Contáctame",
+    "scroll": "Desplázate hacia abajo"
+  },
+  "about": {
+    "title": "Sobre el Chef Calderón",
+    "p1": "Con una carrera que conecta continentes, el Chef Calderón combina la precisión asiática, la sofisticación francesa y el corazón costarricense para crear experiencias que trascienden el plato.",
+    "p2": "Su enfoque se guía por la emoción, el equilibrio y la narrativa: cada plato es un diálogo entre cultura, memoria y artesanía.",
+    "quote": "La verdadera receta de un chef está escrita en la intuición, no en las instrucciones.",
+    "scroll": "Desplázate hacia abajo"
+  },
+
+ "gallery": {
+  "title": "Experiencia Culinaria",
+  "signature": "Plato Emblemático del Chef Calderón",
+  "scroll": "Desplázate hacia abajo",
+  "items": {
+    "ramen": "Ramen Asiático",
+    "sushi": "Sushi Tradicional",
+    "ceviche": "Ceviche Tropical",
+    "pulpo": "Pulpo Mediterráneo",
+    "gourmet": "Plato Fusión",
+    "postre": "Postre Emblemático",
+    "emparedado": "Emparedado Artesanal",
+    "ensalada": "Ensalada Fresca"
+  }
+},
+
+  "review": {
+    "title": "Opiniones de los Invitados",
+    "quote": "Creado con pasión — recordado por cada comensal.",
+    "scroll": "Desplázate hacia abajo"
+  },
+  "contact": {
+    "title": "Contactar al Chef",
+    "contactInfo": "Información de Contacto",
+    "follow": "Sígueme",
+    "send": "Enviar un Mensaje",
+    "name": "Nombre Completo",
+    "email": "Correo Electrónico",
+    "message": "Tu Mensaje...",
+    "sendBtn": "Enviar Mensaje",
+    "thank": "¡Gracias!",
+    "soon": "Será atendido en breve.",
+    "chat": "Chatear por WhatsApp"
+  },
+  "footer": {
+    "description": "Una fusión de tradición e innovación. Experiencias culinarias creadas con pasión, precisión y corazón.",
+    "contact": "Contacto",
+    "follow": "Sígueme",
+    "rights": "Todos los derechos reservados."
+  }
+}

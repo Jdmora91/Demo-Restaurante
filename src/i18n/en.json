@@ -1,0 +1,64 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "gallery": "Gallery",
+    "review": "Review",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Chef Calderón",
+    "subtitle": "Fusion of cultures and flavors. Asian precision, French elegance, and Costa Rican soul come together on every plate.",
+    "contactBtn": "Contact Me",
+    "scroll": "Scroll Down"
+  },
+  "about": {
+    "title": "About Chef Calderón",
+    "p1": "With a career that bridges continents, Chef Calderón blends Asian precision, French sophistication, and Costa Rican heart to create experiences that transcend the plate.",
+    "p2": "His approach is guided by emotion, balance, and storytelling — every dish a dialogue between culture, memory, and craftsmanship.",
+    "quote": "A chef’s true recipe is written in intuition, not instructions.",
+    "scroll": "Scroll Down"
+  },
+
+  "gallery": {
+  "title": "Culinary Experience",
+  "signature": "Chef Calderón Signature Dish",
+  "scroll": "Scroll Down",
+  "items": {
+    "ramen": "Asian Ramen",
+    "sushi": "Traditional Sushi",
+    "ceviche": "Tropical Ceviche",
+    "pulpo": "Mediterranean Octopus",
+    "gourmet": "Fusion Dish",
+    "postre": "Signature Dessert",
+    "emparedado": "Artisan Sandwich",
+    "ensalada": "Fresh Salad"
+  }
+},
+
+  "review": {
+    "title": "Guest Reviews",
+    "quote": "Crafted with passion — remembered by every guest.",
+    "scroll": "Scroll Down"
+  },
+  "contact": {
+    "title": "Contact the Chef",
+    "contactInfo": "Contact Information",
+    "follow": "Follow Me",
+    "send": "Send a Message",
+    "name": "Full Name",
+    "email": "Email Address",
+    "message": "Your Message...",
+    "sendBtn": "Send Message",
+    "thank": "Thank you!",
+    "soon": "You will be attended shortly.",
+    "chat": "Chat on WhatsApp"
+  },
+  "footer": {
+    "description": "A fusion of tradition and innovation. Culinary experiences crafted with passion, precision, and heart.",
+    "contact": "Contact",
+    "follow": "Follow Me",
+    "rights": "All rights reserved."
+  }
+  
+}

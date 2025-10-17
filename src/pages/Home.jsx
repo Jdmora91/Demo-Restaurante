@@ -1,11 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import sushi from "../assets/sushi.jpg";
+import { FaWhatsapp } from "react-icons/fa";
 
 function Home() {
   const navigate = useNavigate();
-  const goToContact = () => navigate("/Contact");
+  const { t } = useTranslation();
+    const openWhatsApp = () => {
+    window.open(
+      "https://wa.me/50685804430?text=Hola%20Chef%20Calder%C3%B3n%2C%20me%20gustar%C3%ADa%20hacer%20una%20reservaci%C3%B3n.",
+      "_blank"
+    );
+  };
+
+
   const goToAbout = () => navigate("/about");
 
   return (
@@ -48,7 +58,7 @@ function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Chef Calderón
+          {t("home.title")}
         </motion.h1>
 
         <motion.p
@@ -57,18 +67,17 @@ function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          Fusion of cultures and flavors. Asian precision, French elegance,
-          and Costa Rican soul come together on every plate.
+          {t("home.subtitle")}
         </motion.p>
 
-        <motion.button
-          onClick={goToContact}
-          className="mt-6 px-8 py-3 bg-[#C1440E] text-[#F3EDE4] font-[Inter] font-semibold uppercase tracking-wider rounded-md hover:bg-[#E85C2C] transition"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Contact Me
-        </motion.button>
+           <motion.button
+                     onClick={openWhatsApp}
+                     className="flex items-center gap-3 bg-green-600 hover:bg-green-500 text-white px-6 py-3 rounded-md font-semibold shadow-lg transition"
+                     whileHover={{ scale: 1.05 }}
+                     whileTap={{ scale: 0.95 }}
+                   >
+                     <FaWhatsapp size={22} /> {t("contact.chat")}
+                   </motion.button>
       </div>
 
       {/* Imagen destacada */}
@@ -92,7 +101,9 @@ function Home() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <span className="text-sm md:text-base font-[Inter]">Scroll Down</span>
+        <span className="text-sm md:text-base font-[Inter]">
+          {t("home.scroll")}
+        </span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
