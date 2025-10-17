@@ -14,7 +14,7 @@ function Contact() {
   const [loaded, setLoaded] = useState(false);
   const { t } = useTranslation();
 
-  
+
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 300);
     return () => clearTimeout(timer);
@@ -126,6 +126,14 @@ function Contact() {
                   className="text-gray-300 hover:text-green-500 transition"
                 >
                   <FaWhatsapp size={24} />
+                </a>
+                <a
+                  href="https://maps.app.goo.gl/uZvhZCm7wdqA7USr5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-green-500 transition"
+                >
+                  <FaMapMarkerAlt className="text-[#F3EDE4] text-lg" />
                 </a>
               </div>
             </div>
